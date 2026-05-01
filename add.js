@@ -1,3 +1,4 @@
+// © codedroider. 2026
 document.documentElement.innerHTML = `
 <meta charset="UTF-8">
 <style>
