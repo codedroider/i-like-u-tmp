@@ -1,5 +1,6 @@
 <style>
   body { 
+    /* page customization */
     background: #0a0a0a; 
     color: #ff4d6d; 
     font-family: 'Courier New', monospace; 
@@ -11,20 +12,24 @@
     overflow: hidden; 
   }
   h1 { 
+    /* better text */
     font-size: 2.5rem; 
     z-index: 10; 
     text-shadow: 0 0 20px rgba(255, 77, 109, 0.5); 
   }
   .heart { 
+    /* effect settings */
     position: absolute; 
     user-select: none; 
     z-index: 1; 
   }
 </style>
 
+<!-- ur text -->
 <h1>i like u <3</h1>
 
 <script>
+  // effect
   for (let i = 0; i < 35; i++) {
     const h = document.createElement('div');
     h.className = 'heart';
