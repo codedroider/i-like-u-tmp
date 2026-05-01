@@ -1,8 +1,10 @@
 <!-- © codedroider. 2026 -->
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
+  /* page customization */
   body { 
-    /* page customization */
     background: #0a0a0a; 
     color: #ff4d6d; 
     font-family: 'Courier New', monospace; 
@@ -13,17 +15,36 @@
     margin: 0; 
     overflow: hidden; 
   }
-  h1 { 
-    /* better text */
+    h1 { 
     font-size: 2.5rem; 
     z-index: 10; 
-    text-shadow: 0 0 20px rgba(255, 77, 109, 0.5); 
+    text-shadow: 0 0 20px rgba(255, 77, 109, 0.8); 
+    pointer-events: none;
+    text-align: center;
   }
+
   .heart { 
-    /* effect settings */
     position: absolute; 
+    bottom: -50px; 
     user-select: none; 
-    z-index: 1; 
+    z-index: 1;
+    animation: mainFly linear infinite;
+  }
+
+  @keyframes mainFly {
+    0% { 
+      transform: translateY(0) rotate(0deg) translateX(0); 
+      opacity: 0; 
+    }
+    10% { opacity: 0.5; }
+    25% { transform: translateY(-25vh) rotate(15deg) translateX(20px); } /* плавный крен вправо */
+    50% { transform: translateY(-50vh) rotate(0deg) translateX(0); }
+    75% { transform: translateY(-75vh) rotate(-15deg) translateX(-20px); } /* крен влево */
+    90% { opacity: 0.5; }
+    100% { 
+      transform: translateY(-115vh) rotate(0deg) translateX(0); 
+      opacity: 0; 
+    }
   }
 </style>
 
@@ -31,16 +52,24 @@
 <h1>i like u <3</h1>
 
 <script>
-  // effect
-  for (let i = 0; i < 35; i++) {
+  // script :D
+  const count = 40;
+  for (let i = 0; i < count; i++) {
     const h = document.createElement('div');
     h.className = 'heart';
     h.innerHTML = '♥';
-    h.style.fontSize = Math.random() * 30 + 10 + 'px';
+    
+    const size = Math.random() * 25 + 10;
+    h.style.fontSize = size + 'px';
     h.style.left = Math.random() * 100 + 'vw';
-    h.style.top = Math.random() * 100 + 'vh';
-    h.style.opacity = Math.random() * 0.25 + 0.25;
-    h.style.transform = `rotate(${Math.random() * 360}deg)`;
+    
+    // delay
+    const duration = Math.random() * 5 + 5; 
+    h.style.animationDuration = duration + 's';
+    h.style.animationDelay = (Math.random() * -10) + 's';
+    
+    if (size < 15) h.style.opacity = '0.3';
+
     document.body.appendChild(h);
   }
 </script>
